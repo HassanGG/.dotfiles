@@ -1,0 +1,12 @@
+tap "nikitabobko/tap"
+
+cask "nikitabobko/tap/aerospace"
+cask "google-chrome"
+cask "keepingyouawake"
+cask "ghostty"
+cask "spotify"
+
+brew "python"
+brew "stow"
+brew "tree"
+
