@@ -1,0 +1,7 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Hassan Ghnewa
+	email = hassan.g.ghnewa@gmail.com
+[core]
+	editor = nvim
+
