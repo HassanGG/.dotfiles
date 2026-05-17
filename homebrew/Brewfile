@@ -9,4 +9,8 @@ cask "spotify"
 brew "python"
 brew "stow"
 brew "tree"
+brew "tmux"
+brew "fzf"
+brew "tpm"
+brew "nvim"
 

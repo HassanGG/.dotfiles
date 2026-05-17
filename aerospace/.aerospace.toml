@@ -173,8 +173,16 @@ on-mode-changed = []
     alt-shift-l = ['join-with right', 'mode main']
 
 
+# Fix for Aerospace seeing Ghostty tabs as separate windows
 [[on-window-detected]]
     if.app-id = "com.mitchellh.ghostty"
-    run = ["layout floating"]
+    run = ["layout floating", "move-node-to-workspace 1"]
 
+[[on-window-detected]]
+    if.app-id = "com.google.Chrome"
+    run = ["move-node-to-workspace 2"]
+
+[[on-window-detected]]
+    if.app-id = "com.spotify.client"
+    run = ["move-node-to-workspace 5"]
 
