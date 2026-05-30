@@ -29,7 +29,7 @@ vim.cmd("colorscheme lunaperche")
 vim.o.timeout = false
 -- vim.o.autochdir = true
 vim.g.netrw_keepdir = 0
-vim.g.netrw_localcopydircmd = 'cp -r'
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
 
 -- Autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
