@@ -12,6 +12,7 @@ alias gp="git push"
 alias gd="git diff"
 
 alias vimconf="vim ~/.dotfiles/nvim/.config/nvim/"
+alias aeroconf="vim ~/.dotfiles/aerospace/.aerospace.toml"
 
 alias ls="ls -a"
 alias tree="tree -a"

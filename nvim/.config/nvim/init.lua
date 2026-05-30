@@ -27,6 +27,9 @@ vim.o.completeopt = "menuone,noselect"
 vim.opt.formatoptions:remove { "c", "r", "o" }
 vim.cmd("colorscheme lunaperche")
 vim.o.timeout = false
+-- vim.o.autochdir = true
+vim.g.netrw_keepdir = 0
+vim.g.netrw_localcopydircmd = 'cp -r'
 
 -- Autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
