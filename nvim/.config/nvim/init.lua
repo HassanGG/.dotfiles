@@ -26,9 +26,9 @@ vim.o.completeopt = "menuone,noselect"
 vim.opt.formatoptions:remove { "c", "r", "o" }
 vim.cmd("colorscheme lunaperche")
 vim.o.timeout = false
--- vim.o.autochdir = true
 vim.g.netrw_keepdir = 0
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
+
 
 -- Autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -44,7 +44,7 @@ if vim.fn.has("mac") == 1 then
   vim.keymap.set('i', '<M-BS>', '<C-w>') -- set option backspace behavior
 end
 
-vim.keymap.set({"n", "v"}, "<leader>x", ":q<CR>", { desc = "Close window" })
+vim.keymap.set({ "n", "v" }, "<leader>x", ":q<CR>", { desc = "Close window" })
 
 -- Increase/Decrease window size (Height)
 vim.keymap.set("n", "<C-Up>", ":resize +5<CR>", { desc = "Increase window height" })
@@ -71,6 +71,13 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to void regi
 
 -- cursor stays at beginning of line
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines" })
+
+-- toggle diagnostic virtual lines
+vim.keymap.set("n", "<leader>td", function()
+  local enabled = vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = not enabled, virtual_text = false })
+  print("Diagnostic virtual lines: " .. (enabled and "OFF" or "ON"))
+end, { desc = "Toggle diagnostic virtual lines" })
 
 -- Lazy.nvim
 require("config.lazy")

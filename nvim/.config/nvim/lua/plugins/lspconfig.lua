@@ -9,6 +9,16 @@ M.dependencies = {
 }
 
 M.config = function()
+  vim.diagnostic.config({
+    virtual_text = false,
+    virtual_lines = true,
+    signs = true,
+    underline = true,
+    severity_sort = true,
+    update_in_insert = false,
+  })
+
+
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
   if has_cmp then
