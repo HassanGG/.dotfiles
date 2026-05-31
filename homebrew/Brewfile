@@ -1,4 +1,5 @@
 tap "nikitabobko/tap"
+tap "anomalyco/tap"
 
 cask "nikitabobko/tap/aerospace"
 cask "google-chrome"
@@ -14,3 +15,4 @@ brew "nvim"
 brew "tmux"
 brew "tpm"
 brew "ripgrep"
+brew "opencode"

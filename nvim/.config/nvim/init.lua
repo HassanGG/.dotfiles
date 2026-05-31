@@ -45,7 +45,16 @@ if vim.fn.has("mac") == 1 then
   vim.keymap.set('i', '<M-BS>', '<C-w>') -- set option backspace behavior
 end
 
-vim.keymap.set({"n", "v"}, "<leader>x", function() vim.cmd("q") end)
+vim.keymap.set({"n", "v"}, "<leader>x", ":q<CR>")
+
+-- Increase/Decrease window size (Height)
+vim.keymap.set("n", "<C-Up>", ":resize +5<CR>")
+vim.keymap.set("n", "<C-Down>", ":resize -5<CR>")
+
+-- Increase/Decrease window size (Width)
+vim.keymap.set("n", "<C-Right>", ":vertical resize +5<CR>")
+vim.keymap.set("n", "<C-Left>", ":vertical resize -5<CR>")
+
 
 -- leader y to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])

@@ -13,6 +13,8 @@ alias gd="git diff"
 
 alias vimconf="vim ~/.dotfiles/nvim/.config/nvim/"
 alias aeroconf="vim ~/.dotfiles/aerospace/.aerospace.toml"
+alias cdvim="cd ~/.dotfiles/nvim/.config/nvim/" 
+alias oc="opencode" 
 
 alias ls="ls -a"
 alias tree="tree -a"
