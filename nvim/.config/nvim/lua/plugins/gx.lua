@@ -4,7 +4,7 @@ vim.g.netrw_nogx = 1
 
 local M = { "chrishrb/gx.nvim" }
 
-M.keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } }
+M.keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" }, desc = "Open URL under cursor" } }
 
 M.dependencies = { 'nvim-lua/plenary.nvim' }
 
