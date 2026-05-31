@@ -1,8 +1,6 @@
--- https://github.com/lewis6991/gitsigns.nvim
-
 local M = { "lewis6991/gitsigns.nvim" }
 
-M.setup =  {
+M.opts = {
   signs = {
     add          = { text = '┃' },
     change       = { text = '┃' },
@@ -19,38 +17,35 @@ M.setup =  {
     changedelete = { text = '~' },
     untracked    = { text = '┆' },
   },
-  signs_staged_enable = true,
-  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
-  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
-  watch_gitdir = {
-    follow_files = true
-  },
-  auto_attach = true,
-  attach_to_untracked = false,
-  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-  current_line_blame_opts = {
-    virt_text = true,
-    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-    delay = 1000,
-    ignore_whitespace = false,
-    virt_text_priority = 100,
-    use_focus = true,
-  },
-  current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
-  blame_formatter = nil, -- Use default
-  sign_priority = 6,
-  update_debounce = 100,
-  status_formatter = nil, -- Use default
-  max_file_length = 40000, -- Disable if file is longer than this (in lines)
-  preview_config = {
-    -- Options passed to nvim_open_win
-    style = 'minimal',
-    relative = 'cursor',
-    row = 0,
-    col = 1
-  },
+  on_attach = function(bufnr)
+    local gs = require("gitsigns")
+
+
+    local function preview_hunk()
+      gs.preview_hunk()
+      vim.schedule(function()
+        for _, winid in ipairs(vim.api.nvim_list_wins()) do
+          if vim.w[winid].gitsigns_preview == "hunk" then
+            vim.api.nvim_set_current_win(winid)
+            return
+          end
+        end
+      end)
+    end
+
+    vim.keymap.set({"n", "v"}, "]c", function() gs.nav_hunk("next") end, { buffer = bufnr, desc = "Next hunk" })
+    vim.keymap.set({"n", "v"}, "[c", function() gs.nav_hunk("prev") end, { buffer = bufnr, desc = "Prev hunk" })
+
+    vim.keymap.set({"n", "v"}, "<leader>gp", preview_hunk, { buffer = bufnr, desc = "Preview hunk" })
+    vim.keymap.set({"n", "v"}, "<leader>gb", function() gs.blame_line({ full = true }) end, { buffer = bufnr, desc = "Blame line" })
+    vim.keymap.set({"n", "v"}, "<leader>tb", gs.toggle_current_line_blame, { buffer = bufnr, desc = "Toggle blame" })
+
+    vim.keymap.set("n", "<leader>gs", gs.stage_hunk, { buffer = bufnr, desc = "Stage hunk" })
+    vim.keymap.set("v", "<leader>gs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { buffer = bufnr, desc = "Stage hunk" })
+
+    vim.keymap.set("n", "<leader>gr", gs.reset_hunk, { buffer = bufnr, desc = "Reset hunk" })
+    vim.keymap.set("v", "<leader>gr", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { buffer = bufnr, desc = "Reset hunk" })
+  end,
 }
 
 return M

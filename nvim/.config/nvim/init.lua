@@ -20,7 +20,6 @@ vim.o.undofile = true
 vim.o.updatetime = 400
 vim.o.scrolloff = 8
 vim.o.cursorline = true
-vim.o.timeout = true
 vim.o.timeoutlen = 300
 vim.o.breakindent = true
 vim.o.completeopt = "menuone,noselect"

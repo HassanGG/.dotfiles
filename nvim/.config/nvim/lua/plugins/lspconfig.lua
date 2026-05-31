@@ -30,6 +30,9 @@ M.config = function()
       nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
       nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
       nmap("<leader>e", vim.diagnostic.open_float, "Diagnostic [E]rror")
+      nmap("]d", vim.diagnostic.goto_next, "[N]ext [D]iagnostic")
+      nmap("[d", vim.diagnostic.goto_prev, "[P]revious [D]iagnostic")
+      nmap("<leader>lf", vim.lsp.buf.format, "[F]ormat [B]uffer")
     end,
   }
 
