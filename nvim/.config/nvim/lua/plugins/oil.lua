@@ -4,6 +4,10 @@ local M = { 'stevearc/oil.nvim' }
 
 M.dependencies = { { "nvim-mini/mini.icons", opts = {} } }
 
+M.keys = {
+  { "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
+}
+
 M.lazy = false
 
 M.opts = {

@@ -15,7 +15,7 @@ vim.o.swapfile = false
 vim.o.backup = false
 vim.o.hlsearch = false
 vim.o.incsearch = true
-vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undodir = vim.fn.stdpath('data') .. "/undodir"
 vim.o.undofile = true
 vim.o.updatetime = 400
 vim.o.scrolloff = 8
@@ -44,6 +44,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 if vim.fn.has("mac") == 1 then
   vim.keymap.set('i', '<M-BS>', '<C-w>') -- set option backspace behavior
 end
+
+vim.keymap.set({"n", "v"}, "<leader>x", function() vim.cmd("q") end)
 
 -- leader y to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])

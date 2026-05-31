@@ -5,7 +5,29 @@ local M = { 'nvim-telescope/telescope.nvim' }
 M.dependencies = { 'nvim-lua/plenary.nvim' }
 
 M.config = function()
-  require('telescope').setup({})
+  require('telescope').setup({
+    defaults = {
+      layout_strategy = 'horizontal', 
+      layout_config = {
+        horizontal = {
+          width = 0.99,   
+          height = 0.99,  
+          preview_width = 0.5, 
+        },
+        vertical = {
+          width = 0.99,
+          height = 0.99,
+          preview_height = 0.5,
+        },
+      },
+      file_ignore_patterns = {
+        "%.git/",       
+        "node_modules/", 
+        "target/",      
+        "dist/",       
+      },
+    }
+  })
   pcall(require('telescope').load_extension, 'fzf')
 end
 
