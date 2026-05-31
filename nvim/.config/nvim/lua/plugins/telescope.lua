@@ -7,12 +7,12 @@ M.dependencies = { 'nvim-lua/plenary.nvim' }
 M.config = function()
   require('telescope').setup({
     defaults = {
-      layout_strategy = 'horizontal', 
+      layout_strategy = 'horizontal',
       layout_config = {
         horizontal = {
-          width = 0.99,   
-          height = 0.99,  
-          preview_width = 0.5, 
+          width = 0.99,
+          height = 0.99,
+          preview_width = 0.5,
         },
         vertical = {
           width = 0.99,
@@ -21,10 +21,10 @@ M.config = function()
         },
       },
       file_ignore_patterns = {
-        "%.git/",       
-        "node_modules/", 
-        "target/",      
-        "dist/",       
+        "%.git/",
+        "node_modules/",
+        "target/",
+        "dist/",
       },
     }
   })
@@ -53,9 +53,14 @@ M.keys = {
     desc = "telescope help tags"
   },
   {
-    "<leader>fg",
+    "<leader>fgg",
     function() require('telescope.builtin').git_files() end,
     desc = "telescope git files"
+  },
+  {
+    "<leader>fgs",
+    function() require('telescope.builtin').git_status() end,
+    desc = "telescope git status"
   },
   {
     "<leader>fs",
