@@ -18,5 +18,6 @@ alias oc="opencode --port"
 
 alias ls="ls -a"
 alias tree="tree -a"
+alias sesh='~/.dotfiles/scripts/tmux-sessionizer.sh'
 
 
