@@ -2,7 +2,13 @@
 
 local M = { 'nvim-telescope/telescope.nvim' }
 
-M.dependencies = { 'nvim-lua/plenary.nvim' }
+M.dependencies = {
+  'nvim-lua/plenary.nvim',
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'make',
+  },
+}
 
 M.config = function()
   require('telescope').setup({
@@ -26,7 +32,7 @@ M.config = function()
         "target/",
         "dist/",
       },
-    }
+    },
   })
   pcall(require('telescope').load_extension, 'fzf')
 end

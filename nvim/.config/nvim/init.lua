@@ -20,7 +20,6 @@ vim.o.undofile = true
 vim.o.updatetime = 400
 vim.o.scrolloff = 8
 vim.o.cursorline = true
-vim.o.timeoutlen = 300
 vim.o.breakindent = true
 vim.o.completeopt = "menuone,noselect"
 vim.opt.formatoptions:remove { "c", "r", "o" }
@@ -28,7 +27,6 @@ vim.cmd("colorscheme lunaperche")
 vim.o.timeout = false
 vim.g.netrw_keepdir = 0
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
-
 
 -- Autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -73,7 +71,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to void regi
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines" })
 
 -- toggle diagnostic virtual lines
-vim.keymap.set("n", "<leader>td", function()
+vim.keymap.set("n", "<leader>uv", function()
   local enabled = vim.diagnostic.config().virtual_lines
   vim.diagnostic.config({ virtual_lines = not enabled, virtual_text = false })
   print("Diagnostic virtual lines: " .. (enabled and "OFF" or "ON"))
