@@ -6,3 +6,6 @@ keybind = alt+right=unbind
 keybind = alt+left=unbind
 keybind = alt+up=unbind
 keybind = alt+down=unbind
+
+keybind = ctrl+x=unbind
+keybind = ctrl+e=unbind

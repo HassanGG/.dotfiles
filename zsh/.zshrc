@@ -1,3 +1,13 @@
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# Load the edit-command-line function
+autoload -Uz edit-command-line
+zle -N edit-command-line
+
+# Bind Ctrl+X, Ctrl+E to trigger it
+bindkey '^X^E' edit-command-line
+
 alias vim="nvim"
 
 BREWFILE_PATH="~/Brewfile"
@@ -19,5 +29,3 @@ alias oc="opencode --port"
 alias ls="ls -a"
 alias tree="tree -a"
 alias sesh='~/.scripts/tmux-sessionizer.sh'
-
-
