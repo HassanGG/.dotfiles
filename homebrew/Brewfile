@@ -6,6 +6,8 @@ cask "google-chrome"
 cask "keepingyouawake"
 cask "ghostty"
 cask "spotify"
+cask "discord"
+cask "whatsapp"
 
 brew "python"
 brew "stow"
