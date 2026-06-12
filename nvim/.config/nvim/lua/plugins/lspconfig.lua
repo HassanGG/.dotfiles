@@ -10,8 +10,8 @@ M.dependencies = {
 
 M.config = function()
   vim.diagnostic.config({
-    virtual_text = false,
-    virtual_lines = true,
+    virtual_text = true,
+    virtual_lines = false,
     signs = true,
     underline = true,
     severity_sort = true,
@@ -40,8 +40,8 @@ M.config = function()
       nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
       nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
       nmap("K", vim.diagnostic.open_float, "Diagnostic [E]rror")
-      nmap("]d", vim.diagnostic.goto_next, "[N]ext [D]iagnostic")
-      nmap("[d", vim.diagnostic.goto_prev, "[P]revious [D]iagnostic")
+      nmap("]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, "[N]ext [D]iagnostic")
+      nmap("[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, "[P]revious [D]iagnostic")
       nmap("<leader>lf", vim.lsp.buf.format, "[F]ormat [B]uffer")
     end,
   }
