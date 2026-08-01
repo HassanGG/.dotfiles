@@ -59,12 +59,12 @@ M.keys = {
     desc = "telescope help tags"
   },
   {
-    "<leader>fgg",
+    "<leader>fg",
     function() require('telescope.builtin').git_files() end,
     desc = "telescope git files"
   },
   {
-    "<leader>fgs",
+    "<leader>ft",
     function() require('telescope.builtin').git_status() end,
     desc = "telescope git status"
   },

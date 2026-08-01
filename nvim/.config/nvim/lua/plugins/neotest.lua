@@ -3,6 +3,7 @@ local M = { "nvim-neotest/neotest" }
 M.dependencies = {
   "nvim-neotest/nvim-nio",
   "nvim-lua/plenary.nvim",
+  "alfaix/neotest-gtest",
   {
     "nvim-neotest/neotest-plenary",
     dependencies = { "nvim-neotest/neotest" },
@@ -32,6 +33,7 @@ M.config = function()
         jestCommand = "jest",
         jestConfigFile = "jest.config.*",
       }),
+      require("neotest-gtest").setup({})
     },
     discovery = { enabled = true, concurrent = 0, filter_dir = nil },
     running = { concurrent = true },

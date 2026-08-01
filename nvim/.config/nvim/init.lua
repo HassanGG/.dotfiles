@@ -28,6 +28,8 @@ vim.o.timeout = false
 vim.g.netrw_keepdir = 0
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
 
+vim.cmd("filetype plugin indent on")
+
 -- Autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
@@ -61,6 +63,8 @@ vim.keymap.set({ "n", "v" }, "<leader>P", [["+P]], { desc = "Paste from clipboar
 vim.keymap.set("v", "p", [["_dP]], { desc = "Paste without yanking" })
 vim.keymap.set("v", "P", [["_dP]], { desc = "Paste without yanking (before)" })
 
+vim.keymap.set('i', '<M-BS>', '<C-w>')
+
 -- terminal
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
@@ -70,12 +74,21 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to void regi
 -- cursor stays at beginning of line
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines" })
 
--- toggle diagnostic virtual lines
-vim.keymap.set("n", "<leader>uv", function()
-  local enabled = vim.diagnostic.config().virtual_lines
-  vim.diagnostic.config({ virtual_lines = not enabled, virtual_text = false })
-  print("Diagnostic virtual lines: " .. (enabled and "OFF" or "ON"))
-end, { desc = "Toggle diagnostic virtual lines" })
+local nmap = function(keys, func, desc)
+  vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
+end
+
+nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+nmap("gh", vim.lsp.buf.hover, "Hover Documentation")
+nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
+nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+nmap("K", vim.diagnostic.open_float, "Diagnostic [E]rror")
+nmap("]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, "[N]ext [D]iagnostic")
+nmap("[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, "[P]revious [D]iagnostic")
+nmap("<leader>lf", vim.lsp.buf.format, "[F]ormat [B]uffer")
 
 -- Lazy.nvim
 require("config.lazy")

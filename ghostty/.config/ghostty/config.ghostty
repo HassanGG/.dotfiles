@@ -10,3 +10,5 @@ keybind = alt+down=unbind
 keybind = ctrl+x=unbind
 keybind = ctrl+e=unbind
 keybind = ctrl+k=unbind
+
+keybind = super+t=unbind
