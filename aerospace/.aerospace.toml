@@ -1,9 +1,12 @@
 # https://nikitabobko.github.io/AeroSpace/guide
+
 config-version = 2
 
 after-startup-command = []
 
 start-at-login = true
+
+auto-reload-config = true
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -16,11 +19,13 @@ default-root-container-orientation = 'auto'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
-automatically-unhide-macos-hidden-apps = false
+automatically-unhide-macos-hidden-apps = true
 
 persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 on-mode-changed = []
+
+focus-follows-mouse.enabled = false
 
 [key-mapping]
     preset = 'qwerty'
@@ -34,7 +39,6 @@ on-mode-changed = []
     outer.right =      0
 
 [mode.main.binding]
-
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
 
