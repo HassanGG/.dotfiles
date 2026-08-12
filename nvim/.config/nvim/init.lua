@@ -78,6 +78,8 @@ local nmap = function(keys, func, desc)
   vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
 end
 
+vim.keymap.set("n", "<leader>sf", ":luafile %<CR>", { desc = "[S]ource [F]ile" })
+
 nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 nmap("gh", vim.lsp.buf.hover, "Hover Documentation")

@@ -9,6 +9,8 @@ cask "spotify"
 cask "discord"
 cask "whatsapp"
 cask "zed"
+cask "anki"
+cask "godot"
 
 brew "python"
 brew "stow"
