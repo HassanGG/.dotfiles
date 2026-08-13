@@ -102,3 +102,8 @@ focus-follows-mouse.enabled = false
 [[on-window-detected]]
     if.app-id = "com.spotify.client"
     run = ["move-node-to-workspace 5"]
+
+[[on-window-detected]]
+    if.app-id = "org.godotengine.godot"
+    run = ["move-node-to-workspace 3"]
+    

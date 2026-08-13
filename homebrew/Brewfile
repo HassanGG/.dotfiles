@@ -1,7 +1,7 @@
 tap "nikitabobko/tap"
 tap "anomalyco/tap"
 
-cask "nikitabobko/tap/aerospace"
+cask "nikitabobko/tap/aerospace", trusted: true
 cask "google-chrome"
 cask "keepingyouawake"
 cask "ghostty"
@@ -11,6 +11,7 @@ cask "whatsapp"
 cask "zed"
 cask "anki"
 cask "godot"
+cask "opencode-desktop"
 
 brew "python"
 brew "stow"
