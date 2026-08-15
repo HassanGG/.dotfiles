@@ -1,5 +1,8 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
+export ANKI_PATH="$HOME/Projects/anki"
+
+bindkey -e
 
 # Bind Ctrl+X, Ctrl+E to edit command line in neovim
 autoload -Uz edit-command-line

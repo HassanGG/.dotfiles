@@ -115,3 +115,6 @@ focus-follows-mouse.enabled = false
     if.app-id = "dev.zed.Zed"
     run = ["move-node-to-workspace 3"]
 
+[[on-window-detected]]
+    if.app-id = "ai.opencode.desktop"
+    run = ["move-node-to-workspace 3"]
