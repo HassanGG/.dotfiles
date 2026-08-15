@@ -1,3 +1,5 @@
+-- https://github.com/igorlfs/nvim-dap-view
+
 local M = { "igorlfs/nvim-dap-view" }
 
 M.dependencies = { "mfussenegger/nvim-dap" }

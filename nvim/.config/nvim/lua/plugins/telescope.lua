@@ -64,12 +64,12 @@ M.keys = {
     desc = "telescope git files"
   },
   {
-    "<leader>ft",
+    "<leader>fs",
     function() require('telescope.builtin').git_status() end,
     desc = "telescope git status"
   },
   {
-    "<leader>fs",
+    "<leader>fl",
     function() require('telescope.builtin').lsp_document_symbols() end,
     desc = "telescope lsp document symbols"
   },

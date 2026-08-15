@@ -1,3 +1,5 @@
+-- https://github.com/lewis6991/gitsigns.nvim
+
 local M = { "lewis6991/gitsigns.nvim" }
 
 M.opts = {
