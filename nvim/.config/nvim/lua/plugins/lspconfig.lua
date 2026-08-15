@@ -29,23 +29,6 @@ M.config = function()
 
   vim.lsp.config["*"] = {
     capabilities = capabilities,
-    on_attach = function(_, bufnr)
-      local nmap = function(keys, func, desc)
-        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
-      end
-
-      nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-      nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-      nmap("gh", vim.lsp.buf.hover, "Hover Documentation")
-      nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-      nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
-      nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-      nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-      nmap("K", vim.diagnostic.open_float, "Diagnostic [E]rror")
-      nmap("]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, "[N]ext [D]iagnostic")
-      nmap("[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, "[P]revious [D]iagnostic")
-      nmap("<leader>lf", vim.lsp.buf.format, "[F]ormat [B]uffer")
-    end,
   }
 
   vim.lsp.config.lua_ls = {

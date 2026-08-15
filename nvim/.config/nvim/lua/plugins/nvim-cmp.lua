@@ -9,6 +9,8 @@ M.dependencies = {
   "hrsh7th/cmp-path",
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
+  "onsails/lspkind.nvim",
+  "roobert/tailwindcss-colorizer-cmp.nvim",
 }
 
 M.event = "InsertEnter"

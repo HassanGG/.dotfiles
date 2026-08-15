@@ -9,6 +9,7 @@ vim.o.signcolumn = "yes"
 vim.o.autoread = true
 vim.o.ignorecase = true
 vim.o.relativenumber = true
+vim.o.number = true
 vim.o.termguicolors = true
 vim.o.swapfile = false
 vim.o.backup = false
@@ -43,6 +44,12 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to void register" })
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines" })
 vim.keymap.set("n", "<leader>sf", ":luafile %<CR>", { desc = "[S]ource [F]ile" })
+vim.keymap.set("n", "<leader>sv", ":source $MYVIMRC<CR>", { desc = "[S]ource [V]imrc" })
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move to left window' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move to lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move to upper window' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move to right window' })
+vim.keymap.set('n', 'grd', vim.diagnostic.open_float, { desc = 'Open Diagnostic Float' })
 
 if vim.fn.has("mac") == 1 then
   vim.keymap.set('i', '<M-BS>', '<C-w>')
